@@ -77,3 +77,4 @@ public class LogThread extends Thread {
         }
     }
 }
+
