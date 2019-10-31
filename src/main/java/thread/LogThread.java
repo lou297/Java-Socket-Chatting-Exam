@@ -47,6 +47,11 @@ public class LogThread extends Thread {
         logThread.log(">> LogThread is ready... <<");
         String str;
         while(flag) {
+            try{
+                sleep(10);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             if(!messageQueue.isEmpty()) {
                 try {
                    str = "[" +  calendar.getTime() + "]" + messageQueue.peek() + "\n";
@@ -61,6 +66,7 @@ public class LogThread extends Thread {
         }
 
         try {
+            System.out.println("끝나버림");
             bw.close();
             bwFile.close();
         } catch (Exception e) {
